@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+
+  <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-md text-center">
+    <h1 class="text-3xl font-bold text-gray-800 mb-4">Welcome Home!</h1>
+
+    {% if user.is_authenticated %}
+      <p class="text-gray-600 mb-6">You are logged in as <strong>{{ user.email }}</strong></p>
+
+      <form action="{% url 'home' %}" method="post">
+        {% csrf_token %}
+<a href="{% url 'logout' %}" class="text-blue-500 hover:underline">Logout</a>
+        
+      </form>
+    {% else %}
+      <p class="text-gray-600 mb-4">You are not logged in.</p>
+      <a href="{% url '/' %}" class="text-blue-500 hover:underline">Login</a>
+    {% endif %}
+  </div>
+
+</body>
+</html>

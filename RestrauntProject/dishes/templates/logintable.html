@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Info Form</title>
+</head>
+<body>
+    <h2>Enter User Information</h2>
+
+
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+
+    <hr>
+    <h3>Submitted Users</h3>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Age</th>
+            <th>Is_verified</th>
+        </tr>
+        {% for data in data %}
+        <tr>
+            <td>{{ data.username }}</td>
+            <td>{{ data.password }}</td>
+            <td>{{ data.age }}</td>
+            <td>{{ data.is_verified }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">No users submitted yet.</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

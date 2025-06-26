@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h2>User Registration</h2>
+    <form action = '{% url "get_form" %}' method="POST">
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="age" name="age" required><br><br>
+
+        <a href='{% url "table" %}'><button type="submit">Register</button></a>
+        
+    </form>
+</body>
+</html>
